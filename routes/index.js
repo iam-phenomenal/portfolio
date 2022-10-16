@@ -1,7 +1,7 @@
 const router =  require("express").Router()
 
 router.get("", (req, res)=>{
-    res.send("Welcome to Home page")
+    res.status(200).json("Welcome to Home page")
 })
 
 module.exports = router
