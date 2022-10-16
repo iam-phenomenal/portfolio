@@ -1,5 +1,6 @@
 const { urlencoded } = require("express")
 const express = require("express")
+const db = require("./database")
 
 //Public routes importation
 const indexRouter = require("../routes/index")
@@ -14,6 +15,8 @@ const adminProjectRouter = require("../routes/admin/project")
 const userRouter = require("../routes/admin/user")
 
 const app = express()
+db.on("error", (error)=> console.log(error))
+db.once("open", ()=> console.log("Connected to database"))
 
 app.use(express.json())
 app.use(urlencoded({extended: true}))
