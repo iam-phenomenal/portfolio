@@ -1,10 +1,10 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "PORTFOLIO\r ----------\r Portfolio is a backend project that can be used alongside frontend web technologies in creating a portfolio website of any kind",
-  "main": "index.js",
+  "description": "Portfolio is a backend project that can be used alongside frontend web technologies in creating a portfolio website of any kind",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "devStart": "nodemon run server.js"
   },
   "repository": {
     "type": "git",
