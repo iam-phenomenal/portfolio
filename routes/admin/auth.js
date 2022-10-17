@@ -1,13 +1,9 @@
 const router = require("express").Router()
-
+const {register, login} = require("../../app/http/requests/authRequest")
 //Login
-router.post("/login", (req, res)=>{
-    res.status(200).json("Welcome to Login page")
-})
+router.post("/login", login)
 
 //Registration
-router.post("/register", (req, res)=>{
-    res.status(200).json("Welcome to Registration page")
-})
+router.post("/register", register)
 
 module.exports = router
