@@ -5,7 +5,6 @@ const {hashPass, validateHash} = require("../../others/hash/hasher")
 const register = async (req, res)=>{
     //Hash password
     const hashPassword =await hashPass(req.body.password)
-    console.log(hashPassword)
     const user = new User({
         username: req.body.username,
         email: req.body.email,
@@ -14,7 +13,8 @@ const register = async (req, res)=>{
     })
     try{
         const savedUser = await user.save()
-        return res.status(201).json(savedUser)
+        const {password, ...others} = savedUser._doc
+        return res.status(201).json(others)
     }catch(err){
         return res.status(500).json({"Error": err.message})
     }
@@ -29,7 +29,8 @@ const login = async(req, res)=>{
         if(!passwordValidation){
             return res.status(403).json("Failed Authentication")
         }
-        return res.status(200).json(user)
+        const {password, ...others} = user._doc
+        return res.status(200).json(others)
     }catch(err){
         return res.status(500).json({"Error": err.message})
     }
