@@ -1,16 +1,16 @@
 const bcrypt = require("bcrypt")
 require("dotenv").config()
 
-const saltRounds = process.env.SALT_ROUND
+const saltRounds = 10
 
-const hash = async (password)=>{
-    const hashResult = await bcrypt.hash(password, saltRounds)
+const hashPass = async (password)=>{
+    const hashResult = await bcrypt.hash(password.toString(), saltRounds);
     return hashResult
 }
 
 const validateHash = async (password, hashedPassword)=>{
-    const validationResult = await bcrypt.compare(password, hashedPassword)
+    const validationResult = await bcrypt.compare(password.toString(), hashedPassword)
     return validationResult
 }
 
-module.exports = {hash, validateHash}
+module.exports = {hashPass, validateHash}
