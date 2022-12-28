@@ -1,7 +1,7 @@
 const router =  require("express").Router()
+const {getProject} = require("../app/http/requests/projectRequest")
 
-router.get("", (req, res)=>{
-    res.status(200).json("Welcome to Project page")
-})
+//Create Project
+router.get("", getProject)
 
 module.exports = router

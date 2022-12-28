@@ -1,7 +1,37 @@
 const router =  require("express").Router()
 
 router.get("", (req, res)=>{
-    res.status(200).json("Welcome to Contact page")
+    res.status(200).json({
+        message: "Welcome to the portfolio contacts page",
+        requests: [
+            {
+                name: "Home",
+                type: "GET",
+                desc: "Welcome to the portfolio landing page",
+                url: "http://localhost:4500/"
+            },{
+                name: "Developers",
+                type: "GET",
+                desc: "View platform's developers",
+                url: "http://localhost:4500/developers"
+            },{
+                name: "Projects",
+                type: "GET",
+                desc: "View projects",
+                url: "http://localhost:4500/projects"
+            },{
+                name: "About",
+                type: "GET",
+                desc: "Know more about us",
+                url: "http://localhost:4500/about"
+            },{
+                name: "Authentication",
+                type: "GET",
+                desc: "Authentication's page",
+                url: "http://localhost:4500/auth"
+            }
+        ]
+    })
 })
 
 module.exports = router
